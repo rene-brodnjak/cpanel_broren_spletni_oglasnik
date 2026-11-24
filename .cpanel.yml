@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/broren/public_html/oglasnik
+    - /bin/mkdir -p "$DEPLOYPATH"
+    - /bin/cp -R index.html picocss-peskovnik.html README.md "$DEPLOYPATH/"
