@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="sl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prototip šolskega spletnega oglasnika za prodajo šolskih potrebščin.">
+  <title>Šolski oglasnik</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <style>
+    header { border-bottom: 1px solid var(--pico-muted-border-color); }
+    header nav { align-items: center; }
+    .oglasi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+    article { margin: 0; overflow: hidden; }
+    article img { width: 100%; height: 170px; object-fit: contain; background: #eef3f7; }
+    article h2 { font-size: 1.1rem; margin-top: 1rem; }
+    article footer { text-align: right; }
+    article footer button { margin: 0; }
+    body > footer { margin-top: 2rem; border-top: 1px solid var(--pico-muted-border-color); }
+    [hidden] { display: none !important; }
+    @media (max-width: 800px) { .oglasi { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 550px) { .oglasi { grid-template-columns: 1fr; } header nav { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Glavna navigacija">
+      <ul><li><strong>Šolski oglasnik</strong></li></ul>
+      <ul><li><a href="./">Domov</a></li><li><a href="#" data-info="Dodajanje oglasov">Dodaj oglas</a></li><li><a href="#" data-info="Prijava uporabnikov">Prijava</a></li></ul>
+    </nav>
+  </header>
+  <main class="container">
+    <h1>Šolski spletni oglasnik</h1>
+    <form role="search" id="iskanje">
+      <label for="iskalnik">Poišči šolske potrebščine</label>
+      <input type="search" id="iskalnik" name="q" placeholder="Išči oglas …" aria-controls="oglasi">
+    </form>
+    <section class="oglasi" id="oglasi" aria-label="Oglasi">
+      <article data-oglas="Kalkulator" data-opis="Ohranjen šolski kalkulator."><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22160%22%20viewBox%3D%220%200%20200%20160%22%3E%3Crect%20x%3D%2255%22%20y%3D%2212%22%20width%3D%2290%22%20height%3D%22136%22%20rx%3D%2210%22%20fill%3D%22%2337556b%22%2F%3E%3Crect%20x%3D%2266%22%20y%3D%2225%22%20width%3D%2268%22%20height%3D%2230%22%20rx%3D%223%22%20fill%3D%22%23d1e9d7%22%2F%3E%3Cg%20fill%3D%22%23fff%22%3E%3Crect%20x%3D%2267%22%20y%3D%2268%22%20width%3D%2217%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%2291%22%20y%3D%2268%22%20width%3D%2217%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%22115%22%20y%3D%2268%22%20width%3D%2217%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%2267%22%20y%3D%2292%22%20width%3D%2217%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%2291%22%20y%3D%2292%22%20width%3D%2217%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%22115%22%20y%3D%2292%22%20width%3D%2217%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%2267%22%20y%3D%22116%22%20width%3D%2217%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%2291%22%20y%3D%22116%22%20width%3D%2217%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%22115%22%20y%3D%22116%22%20width%3D%2217%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Simbolna slika: Kalkulator" width="200" height="160"><h2>Kalkulator</h2><p><strong>15,00 €</strong></p><footer><button type="button" class="secondary outline" data-poglej aria-label="Poglej oglas: Kalkulator">Poglej oglas</button></footer></article>
+      <article data-oglas="Učbenik za matematiko" data-opis="Učbenik za srednjo šolo brez manjkajočih strani."><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22160%22%20viewBox%3D%220%200%20200%20160%22%3E%3Crect%20x%3D%2242%22%20y%3D%2218%22%20width%3D%22116%22%20height%3D%22128%22%20rx%3D%225%22%20fill%3D%22%23457b73%22%2F%3E%3Cpath%20d%3D%22M54%2018v128%22%20stroke%3D%22%23c2e6db%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22103%22%20y%3D%2290%22%20text-anchor%3D%22middle%22%20font-size%3D%2242%22%20fill%3D%22white%22%3E%CF%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Simbolna slika: Učbenik za matematiko" width="200" height="160"><h2>Učbenik za matematiko</h2><p><strong>12,00 €</strong></p><footer><button type="button" class="secondary outline" data-poglej aria-label="Poglej oglas: Učbenik za matematiko">Poglej oglas</button></footer></article>
+      <article data-oglas="Slušalke" data-opis="Naglavne slušalke za poslušanje in delo z računalnikom."><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22160%22%20viewBox%3D%220%200%20200%20160%22%3E%3Cpath%20d%3D%22M50%2095V70a50%2050%200%200%201%20100%200v25%22%20fill%3D%22none%22%20stroke%3D%22%23536780%22%20stroke-width%3D%2216%22%2F%3E%3Crect%20x%3D%2235%22%20y%3D%2278%22%20width%3D%2230%22%20height%3D%2255%22%20rx%3D%2212%22%20fill%3D%22%2327435e%22%2F%3E%3Crect%20x%3D%22135%22%20y%3D%2278%22%20width%3D%2230%22%20height%3D%2255%22%20rx%3D%2212%22%20fill%3D%22%2327435e%22%2F%3E%3C%2Fsvg%3E" alt="Simbolna slika: Slušalke" width="200" height="160"><h2>Slušalke</h2><p><strong>20,00 €</strong></p><footer><button type="button" class="secondary outline" data-poglej aria-label="Poglej oglas: Slušalke">Poglej oglas</button></footer></article>
+      <article data-oglas="Računalniška miška" data-opis="Žična optična miška za vsakodnevno uporabo."><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22160%22%20viewBox%3D%220%200%20200%20160%22%3E%3Crect%20x%3D%2265%22%20y%3D%2235%22%20width%3D%2270%22%20height%3D%22110%22%20rx%3D%2235%22%20fill%3D%22%2355758b%22%2F%3E%3Cpath%20d%3D%22M100%2035V10M66%2080h68M100%2035v43%22%20stroke%3D%22%23dceaf2%22%20stroke-width%3D%224%22%2F%3E%3C%2Fsvg%3E" alt="Simbolna slika: Računalniška miška" width="200" height="160"><h2>Računalniška miška</h2><p><strong>10,00 €</strong></p><footer><button type="button" class="secondary outline" data-poglej aria-label="Poglej oglas: Računalniška miška">Poglej oglas</button></footer></article>
+      <article data-oglas="Šolski nahrbtnik" data-opis="Prostoren nahrbtnik s predalom za šolske potrebščine."><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22160%22%20viewBox%3D%220%200%20200%20160%22%3E%3Crect%20x%3D%2248%22%20y%3D%2235%22%20width%3D%22104%22%20height%3D%22112%22%20rx%3D%2225%22%20fill%3D%22%23b37349%22%2F%3E%3Cpath%20d%3D%22M77%2035V24q23-24%2046%200v11%22%20fill%3D%22none%22%20stroke%3D%22%23785039%22%20stroke-width%3D%228%22%2F%3E%3Crect%20x%3D%2265%22%20y%3D%2290%22%20width%3D%2270%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23e3b184%22%2F%3E%3C%2Fsvg%3E" alt="Simbolna slika: Šolski nahrbtnik" width="200" height="160"><h2>Šolski nahrbtnik</h2><p><strong>18,00 €</strong></p><footer><button type="button" class="secondary outline" data-poglej aria-label="Poglej oglas: Šolski nahrbtnik">Poglej oglas</button></footer></article>
+      <article data-oglas="Zvezki" data-opis="Komplet treh nepopisanih zvezkov."><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22160%22%20viewBox%3D%220%200%20200%20160%22%3E%3Crect%20x%3D%2248%22%20y%3D%2224%22%20width%3D%2295%22%20height%3D%22124%22%20rx%3D%223%22%20fill%3D%22%23deb55b%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%2217%22%20width%3D%2295%22%20height%3D%22124%22%20rx%3D%223%22%20fill%3D%22%236c8caa%22%2F%3E%3Cpath%20d%3D%22M55%2017v124M72%2055h45M72%2072h45%22%20stroke%3D%22%23e7eef4%22%20stroke-width%3D%224%22%2F%3E%3C%2Fsvg%3E" alt="Simbolna slika: Zvezki" width="200" height="160"><h2>Zvezki</h2><p><strong>5,00 €</strong></p><footer><button type="button" class="secondary outline" data-poglej aria-label="Poglej oglas: Zvezki">Poglej oglas</button></footer></article>
+    </section>
+    <p id="ni-zadetkov" role="status" hidden>Za iskani izraz ni oglasov.</p>
+  </main>
+  <footer class="container"><small>Šolski oglasnik · RPS · Rene Brodnjak · 2026</small></footer>
+  <dialog id="podrobnosti" aria-labelledby="naslov-dialoga">
+    <article><header><button aria-label="Zapri" rel="prev" id="zapri"></button><h2 id="naslov-dialoga"></h2></header><p id="opis-dialoga"></p></article>
+  </dialog>
+  <script>
+    const dialog = document.querySelector('#podrobnosti');
+    const naslov = document.querySelector('#naslov-dialoga');
+    const opis = document.querySelector('#opis-dialoga');
+    document.querySelector('#iskanje').addEventListener('submit', e => e.preventDefault());
+    document.querySelector('#iskalnik').addEventListener('input', e => {
+      const izraz = e.target.value.trim().toLocaleLowerCase('sl');
+      const kartice = [...document.querySelectorAll('[data-oglas]')];
+      kartice.forEach(k => k.hidden = !k.dataset.oglas.toLocaleLowerCase('sl').includes(izraz));
+      document.querySelector('#ni-zadetkov').hidden = kartice.some(k => !k.hidden);
+    });
+    document.querySelectorAll('[data-poglej]').forEach(gumb => gumb.addEventListener('click', () => {
+      const kartica = gumb.closest('article');
+      naslov.textContent = kartica.dataset.oglas;
+      opis.textContent = kartica.dataset.opis + ' Cena: ' + kartica.querySelector('strong').textContent;
+      dialog.showModal();
+    }));
+    document.querySelectorAll('[data-info]').forEach(povezava => povezava.addEventListener('click', e => {
+      e.preventDefault(); naslov.textContent = povezava.dataset.info;
+      opis.textContent = 'Ta funkcionalnost je predvidena v nadaljevanju razvoja aplikacije.';
+      dialog.showModal();
+    }));
+    document.querySelector('#zapri').addEventListener('click', () => dialog.close());
+  </script>
+</body>
+</html>
